@@ -1,3 +1,5 @@
+const shajs = require('sha.js')
+
 // Block chain constructor function
 function Blockchain() {
   this.chain = []
@@ -34,6 +36,12 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, receiver) 
 
   this.pendingTransactions.push(newTransaction)
   return this.getLastChainBlock()['blockId'] + 1
+}
+
+// Hashing function
+Blockchain.prototype.hashBlock = function (nonce, previousBlockHash, blockData) {
+  const dataAsString = nonce.toString() + previousBlockHash + JSON.stringify(blockData)
+  return shajs('sha256').update(dataAsString).digest('hex')
 }
 
 module.exports = Blockchain

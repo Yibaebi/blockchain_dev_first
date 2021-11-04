@@ -13,6 +13,7 @@ bitcoin.createNewBlock(1627663, 'gsuywuyueywb63iuqnuiqh32uiu43bhs', '9j873yhqo02
 bitcoin.getLastChainBlock()
 
 // Create a new transaction
-bitcoin.createNewTransaction(2000, 'Elliot', 'Joshua Nwokoye')
+// console.log(bitcoin.createNewTransaction(2000, 'Elliot', 'Joshua Nwokoye'))
 
-console.log(bitcoin)
+// Hash a data
+console.log(bitcoin.hashBlock(12345, 'jkjqkjkqjq', { name: 'Elliot' }))
